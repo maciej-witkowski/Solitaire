@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import './Card.css';
 
 const Kolor = props => (
     <span
@@ -12,8 +13,19 @@ const Kolor = props => (
 );
 
 function Card(props) {
+    const black_or_red = props.kolor === "♥" || props.kolor === "♦" ? "kolor-red" : "kolor-black";
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    }
+
     return (
-        <p>Wylosowana karta koloru: <Kolor symbol={props.kolor}/> i figury: {props.figura} </p>
+        <div className="karta" onClick={handleClick} style={isClicked ? {border: '5px solid yellow'} : null}>
+            <div className="figura">{props.figura}</div>
+            <div className={black_or_red}><Kolor symbol={props.kolor}/></div>
+        </div>
     );
 }
 

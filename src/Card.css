@@ -1,0 +1,33 @@
+.karta {
+    position: absolute;
+    width: 150px;
+    height: 225px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.karta .figura {
+    padding-left: 10px;
+    padding-top: 2px;
+    font-size: 24px;
+}
+
+.karta .kolor-red {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: red;
+}
+
+.karta .kolor-black {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: black;
+}
