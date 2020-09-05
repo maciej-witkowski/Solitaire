@@ -15,14 +15,8 @@ const Kolor = props => (
 function Card(props) {
     const black_or_red = props.kolor === "♥" || props.kolor === "♦" ? "kolor-red" : "kolor-black";
 
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleClick = () => {
-        setIsClicked(!isClicked);
-    }
-
     return (
-        <div className="karta" onClick={handleClick} style={isClicked ? {border: '5px solid yellow'} : null}>
+        <div className="karta">
             <div className="figura">{props.figura}</div>
             <div className={black_or_red}><Kolor symbol={props.kolor}/></div>
         </div>

@@ -1,28 +1,24 @@
 import React, {useState} from "react";
-import Card from "./Card";
+import DisplayStack from "./DisplayStack";
+import './Stack.css';
 
 const kolory = ["♠", "♥", "♦", "♣"];
 const figury = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
-function Stack() {
+function Stack(props) {
 
     const [state, setState] = useState([]);
 
-    const addCard = (card) => {
-        setState([...state, card]);
+    const addCard = () => {
+        setState([...state, props.card]);
     }
 
-    const removeCard = () => {
-        let copy = [...state];
-        copy.pop();
-        setState(copy);
-    }
+    const buttonName = `add-to-stack${props.title}`
 
     return (
-        <div>
-            <button onClick={() => addCard(<Card kolor={kolory[1]} figura={figury[2]}/>)}>Dodaj</button>
-            <button onClick={removeCard}>Usuń</button>
-            {state}
+        <div className="stack">
+            <button className={buttonName} onClick={addCard}>{props.title}</button>
+            <DisplayStack stack_state={state} title={props.title}/>
         </div>
     )
 }
