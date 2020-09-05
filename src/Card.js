@@ -13,14 +13,27 @@ const Kolor = props => (
 );
 
 function Card(props) {
-    const black_or_red = props.kolor === "♥" || props.kolor === "♦" ? "kolor-red" : "kolor-black";
 
+    const [flipped, setFlip] = useState(false);
+
+    const black_or_red = props.kolor === "♥" || props.kolor === "♦" ? "red" : "black";
+    
     return (
-        <div className="karta">
-            <div className="figura">{props.figura}</div>
-            <div className={black_or_red}><Kolor symbol={props.kolor}/></div>
+        <div className="card">
+            {flipped ?
+                <div className="card-back"></div> :
+                <div className="card-front">
+                    <div className="header">
+                        <div className="figure">{props.figura}</div>
+                        <div className={black_or_red}><Kolor symbol={props.kolor}/></div>
+                    </div>
+                    <div className="footer">
+                        <div className={black_or_red}><Kolor symbol={props.kolor}/></div>
+                    </div>
+                </div>
+            }
         </div>
-    );
+    )
 }
 
 export default Card;

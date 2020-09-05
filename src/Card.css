@@ -1,33 +1,67 @@
-.karta {
-    width: 50px;
-    height: 75px;
+.card-front {
+    position: relative;
+    width: 100px;
+    height: 150px;
+    background-color: white;
     border: 1px solid black;
     border-radius: 5px;
-    /*margin-left: -30px;*/
 }
 
-.karta .figura {
+.card-back {
+    position: relative;
+    width: 100px;
+    height: 150px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 5px;
+    background: rgb(153,153,153);
+    background: radial-gradient(circle, rgba(153,153,153,1) 1%, rgba(0,0,0,1) 75%);
+}
+
+
+.card-front .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-front .header .figure {
     padding-left: 10px;
     padding-top: 2px;
-    font-size: 16px;
+    font-size: 24px;
 }
 
-.karta .kolor-red {
-    height: 60%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
+.card-front .header .red {
+    padding-right: 10px;
+    margin-top: -2px;
+    font-size: 30px;
     color: red;
 }
 
-.karta .kolor-black {
-    height: 70%;
+.card-front .header .black {
+    padding-right: 10px;
+    margin-top: -2px;
+    font-size: 30px;
+    color: black;
+}
+
+.card-front .footer .red {
+    height: 50%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 100px;
+    font-size: 80px;
+    color: red;
+}
+
+.card-front .footer .black {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
     color: black;
 }
