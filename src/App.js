@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import DisplayStack from "./DisplayStack";
 import {create_deck, shuffle} from "./Deck";
 import './App.css';
+import DisplayCard from "./DisplayCard";
 
 const deck = create_deck();
 shuffle(deck);
@@ -40,7 +41,7 @@ function App() {
             <div className="main-panel">
                 <div className="display">
                     <h1>Aktualna karta:</h1>
-                    <div className="curr-card">{deck[deck.length - 1]}</div>
+                    <div className="curr-card"><DisplayCard key={deck[deck.length - 1].key} color={deck[deck.length - 1].color} figure={deck[deck.length - 1].figure} flipped={deck[deck.length - 1].flipped}/></div>
                 </div>
                 <div className="buttons">
                     <button id="1" onClick={(event) => addToStack(event, deck[deck.length - 1])}>1</button>
