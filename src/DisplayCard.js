@@ -14,6 +14,29 @@ const Kolor = props => (
 
 function DisplayCard(props) {
 
+    // const currCard = {
+    //     id: props.id,
+    //     color: props.color,
+    //     figure: props.figure,
+    //     flipped: props.flipped
+    // }
+    //
+    // const [card, changeCard] = useState(currCard);
+    //
+    // useEffect(() => { changeCard(currCard) }, [currCard]);
+
+    // const [key, setKey] = useState(props.key);
+    // useEffect(() => { setKey(props.key) }, [props.key])
+    //
+    // const [color, setColor] = useState(props.color);
+    // useEffect(() => { setColor(props.color) }, [props.color])
+    //
+    // const [figure, setFigure] = useState(props.figure);
+    // useEffect(() => { setFigure(props.figure) }, [props.figure])
+    //
+    // const [flipped, setFlipped] = useState(props.flipped);
+    // useEffect(() => { setFlipped(props.flipped) }, [props.flipped])
+
     const black_or_red = props.color === "♥" || props.color === "♦" ? "red" : "black";
 
     return (

@@ -12,7 +12,6 @@ export function create_deck() {
             count++;
         }
     }
-
     return deck;
 }
 

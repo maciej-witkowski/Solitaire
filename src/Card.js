@@ -1,6 +1,6 @@
 class Card {
-    constructor(key, color, figure) {
-        this.key = key;
+    constructor(id, color, figure) {
+        this.id = id;
         this.color = color;
         this.figure = figure;
         this.flipped = false;
@@ -8,6 +8,7 @@ class Card {
 
     flip() {
         this.flipped = !this.flipped;
+        // return this;
     }
 
 }
