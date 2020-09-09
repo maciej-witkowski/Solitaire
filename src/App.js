@@ -8,13 +8,18 @@ import './App.css';
 const deck = create_deck();
 shuffle(deck);
 
-const stack1 = new Stack(1, deck.splice(0, 1));
-const stack2 = new Stack(2, deck.splice(0, 2));
-const stack3 = new Stack(3, deck.splice(0, 3));
-const stack4 = new Stack(4, deck.splice(0, 4));
-const stack5 = new Stack(5, deck.splice(0, 5));
-const stack6 = new Stack(6, deck.splice(0, 6));
-const stack7 = new Stack(7, deck.splice(0, 7));
+const stack1 = new Stack("stack",1, deck.splice(0, 1));
+const stack2 = new Stack("stack",2, deck.splice(0, 2));
+const stack3 = new Stack("stack",3, deck.splice(0, 3));
+const stack4 = new Stack("stack",4, deck.splice(0, 4));
+const stack5 = new Stack("stack",5, deck.splice(0, 5));
+const stack6 = new Stack("stack",6, deck.splice(0, 6));
+const stack7 = new Stack("stack",7, deck.splice(0, 7));
+
+const pile1 = new Stack("pile", 13, []);
+const pile2 = new Stack("pile", 13, []);
+const pile3 = new Stack("pile", 13, []);
+const pile4 = new Stack("pile", 13, []);
 
 
 function App() {
@@ -26,6 +31,11 @@ function App() {
     const [stack5_state, setStack5State] = useState(stack5.state);
     const [stack6_state, setStack6State] = useState(stack6.state);
     const [stack7_state, setStack7State] = useState(stack7.state);
+
+    const [pile1_state, setPile1State] = useState(pile1.state);
+    const [pile2_state, setPile2State] = useState(pile2.state);
+    const [pile3_state, setPile3State] = useState(pile3.state);
+    const [pile4_state, setPile4State] = useState(pile4.state);
 
     const [pile, changePile] = useState(deck);
     const [currCard, setCurrCard] = useState(pile[pile.length - 1])
@@ -74,34 +84,50 @@ function App() {
                     <button id="7" onClick={(e) => handleAddButton(e, currCard)}>7</button>
                 </div>
             </div>
-            <div className="stacks">
-                <div className="stack">
-                    <h2>Stos 1</h2>
-                    <DisplayStack size={stack1.size} stack_state={stack1_state}/>
+            <div className="card-place">
+                <div className="piles">
+                    <div className="pile">
+                        <DisplayStack type={pile1.type} size={pile1.size} stack_state={pile1_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile2.type} size={pile2.size} stack_state={pile2_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile3.type} size={pile3.size} stack_state={pile3_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile4.type} size={pile4.size} stack_state={pile4_state}/>
+                    </div>
                 </div>
-                <div className="stack">
-                    <h2>Stos 2</h2>
-                    <DisplayStack size={stack2.size} stack_state={stack2_state}/>
-                </div>
-                <div className="stack">
-                    <h2>Stos 3</h2>
-                    <DisplayStack size={stack3.size} stack_state={stack3_state}/>
-                </div>
-                <div className="stack">
-                    <h2>Stos 4</h2>
-                    <DisplayStack size={stack4.size} stack_state={stack4_state}/>
-                </div>
-                <div className="stack">
-                    <h2>Stos 5</h2>
-                    <DisplayStack size={stack5.size} stack_state={stack5_state}/>
-                </div>
-                <div className="stack">
-                    <h2>Stos 6</h2>
-                    <DisplayStack size={stack6.size} stack_state={stack6_state}/>
-                </div>
-                <div className="stack">
-                    <h2>Stos 7</h2>
-                    <DisplayStack size={stack7.size} stack_state={stack7_state}/>
+                <div className="stacks">
+                    <div className="stack">
+                        {/*<h2>Stos 1</h2>*/}
+                        <DisplayStack type={stack1.type} size={stack1.size} stack_state={stack1_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 2</h2>*/}
+                        <DisplayStack type={stack2.type} size={stack2.size} stack_state={stack2_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 3</h2>*/}
+                        <DisplayStack type={stack3.type} size={stack3.size} stack_state={stack3_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 4</h2>*/}
+                        <DisplayStack type={stack4.type} size={stack4.size} stack_state={stack4_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 5</h2>*/}
+                        <DisplayStack type={stack5.type} size={stack5.size} stack_state={stack5_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 6</h2>*/}
+                        <DisplayStack type={stack6.type} size={stack6.size} stack_state={stack6_state}/>
+                    </div>
+                    <div className="stack">
+                        {/*<h2>Stos 7</h2>*/}
+                        <DisplayStack type={stack7.type} size={stack7.size} stack_state={stack7_state}/>
+                    </div>
                 </div>
             </div>
         </div>

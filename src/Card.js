@@ -8,7 +8,6 @@ class Card {
 
     flip() {
         this.flipped = !this.flipped;
-        // return this;
     }
 
 }

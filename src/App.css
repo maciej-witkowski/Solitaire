@@ -17,11 +17,22 @@
     align-items: center;
 }
 
+.piles {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pile {
+    margin-top: 5px;
+    padding: 5px;
+}
+
 .stacks {
     display: flex;
 }
 
 .stack {
+    margin-top: 10px;
     margin-right: 10px;
 }
 

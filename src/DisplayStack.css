@@ -1,3 +1,10 @@
 .display-stack .card:not(:first-child) {
-    margin-top: -100px;
+    margin-top: -110px;
+}
+
+.display-pile {
+    width: 100px;
+    height: 150px;
+    background-color: rgba(32, 16, 9, 0.5);
+    border-radius: 5px;
 }
