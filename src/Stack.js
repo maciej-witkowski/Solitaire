@@ -9,10 +9,6 @@ class Stack {
         this.state.push(card);
     }
 
-    isStack() {
-        return this.type === "stack";
-    }
-
 }
 
 export default Stack;

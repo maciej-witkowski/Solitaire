@@ -21,6 +21,8 @@ const pile2 = new Stack("pile", 13, []);
 const pile3 = new Stack("pile", 13, []);
 const pile4 = new Stack("pile", 13, []);
 
+const chosen = new Stack("chosen", 13, []);
+
 
 function App() {
 
@@ -39,8 +41,9 @@ function App() {
 
     const [pile, changePile] = useState(deck);
     const [currCard, setCurrCard] = useState(pile[pile.length - 1])
+    const [chosen_state, setChosen_state] = useState([]);
 
-    const handleAddButton = (event, card) => {
+    const handleAddToStack = (event, card) => {
         if(event.target.id === "1") {
             stack1.addCard(card);
             setStack1State(stack1.state);
@@ -63,25 +66,47 @@ function App() {
             stack7.addCard(card);
             setStack7State(stack7.state);
         }
-        deck.pop();
+
+        let copy = pile;
+        copy.pop();
+        changePile(copy);
+
         setCurrCard(pile[pile.length - 1]);
+    }
+
+    const handleAddToPile = (event, card) => {
+
+    }
+
+    const handleMark = () => {
+
     }
 
     return (
         <div className="app">
             <div className="main-panel">
-                <div className="display">
-                    <h1>Aktualna karta:</h1>
+                <div className="display-currCard">
+                    <h2>Aktualna karta:</h2>
                     <div className="curr-card"><DisplayCard id={currCard.id} color={currCard.color} figure={currCard.figure} flipped={currCard.flipped}/></div>
                 </div>
-                <div className="buttons">
-                    <button id="1" onClick={(e) => handleAddButton(e, currCard)}>1</button>
-                    <button id="2" onClick={(e) => handleAddButton(e, currCard)}>2</button>
-                    <button id="3" onClick={(e) => handleAddButton(e, currCard)}>3</button>
-                    <button id="4" onClick={(e) => handleAddButton(e, currCard)}>4</button>
-                    <button id="5" onClick={(e) => handleAddButton(e, currCard)}>5</button>
-                    <button id="6" onClick={(e) => handleAddButton(e, currCard)}>6</button>
-                    <button id="7" onClick={(e) => handleAddButton(e, currCard)}>7</button>
+                <div className="stack-buttons">
+                    <button id="1" onClick={(e) => handleAddToStack(e, currCard)}>1</button>
+                    <button id="2" onClick={(e) => handleAddToStack(e, currCard)}>2</button>
+                    <button id="3" onClick={(e) => handleAddToStack(e, currCard)}>3</button>
+                    <button id="4" onClick={(e) => handleAddToStack(e, currCard)}>4</button>
+                    <button id="5" onClick={(e) => handleAddToStack(e, currCard)}>5</button>
+                    <button id="6" onClick={(e) => handleAddToStack(e, currCard)}>6</button>
+                    <button id="7" onClick={(e) => handleAddToStack(e, currCard)}>7</button>
+                </div>
+                <div className="display-chosen">
+                    <h2>Zaznaczone:</h2>
+                    <div className="chosen"><DisplayStack type={chosen.type} size={chosen.size} stack_state={chosen_state}/></div>
+                </div>
+                <div className="pile-buttons">
+                    <button id="1" onClick={(e) => handleAddToPile(e, currCard)}>1</button>
+                    <button id="2" onClick={(e) => handleAddToPile(e, currCard)}>2</button>
+                    <button id="3" onClick={(e) => handleAddToPile(e, currCard)}>3</button>
+                    <button id="4" onClick={(e) => handleAddToPile(e, currCard)}>4</button>
                 </div>
             </div>
             <div className="card-place">

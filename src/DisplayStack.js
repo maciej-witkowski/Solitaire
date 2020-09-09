@@ -8,11 +8,8 @@ function DisplayStack(props) {
     // useEffect(() => { changeStack(props.stack_state) }, [props.stack_state]);
 
     return (
-        <div className={props.type === "stack" ? "display-stack" : "display-pile"}>
-            {props.stack_state.map((card) =>
-                <DisplayCard key={card.id} color={card.color} figure={card.figure} flipped={card.flipped}/>)
-                // flipped={props.stack_state.indexOf(card) === props.size - 1 ? card.flipped : !card.flipped}
-            }
+        <div className={props.type === "stack" ? "display-stack" :  props.type === "pile" ? "display-pile" : "display-chose"}>
+            {props.stack_state.map((card) => <DisplayCard key={card.id} color={card.color} figure={card.figure} flipped={card.flipped}/>)}
         </div>
     )
 
