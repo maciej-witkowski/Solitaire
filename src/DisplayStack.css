@@ -13,9 +13,9 @@
 /*    display: flex;*/
 /*}*/
 
-.display-chose .card:not(:first-child) {
-    margin-top: -110px;
-}
+/*.display-chose .card:not(:first-child) {*/
+/*    margin-top: -110px;*/
+/*}*/
 
 /*.display-chosen .card:not(:first-child){*/
 /*    margin-right: -100px;*/

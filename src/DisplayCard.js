@@ -16,17 +16,19 @@ function DisplayCard(props) {
 
     const black_or_red = props.color === "♥" || props.color === "♦" ? "red" : "black";
 
-    // const [isClicked, setClicked] = useState(props.chosen);
-    //
-    // const handleClick = () => {
-    //   setClicked(!isClicked);
-    // };
+    const [isClicked, setClicked] = useState(props.chosen);
+
+    const handleClick = () => {
+      setClicked(!isClicked);
+      if (!isClicked) props.isChosenAmongYouV2(props.id);
+      else props.isChosenAmongYouV2(null);
+    };
 
     return (
-        <div className="card">
+        <div className="card" onClick={handleClick}>
             {props.flipped ?
                 <div className="card-back"></div> :
-                props.chosen ?
+                isClicked ?
                     <div className="card-front-chosen">
                         <div className="header">
                             <div className="figure">{props.figure}</div>

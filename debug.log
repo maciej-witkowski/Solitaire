@@ -58,3 +58,40 @@
 [0909/021835.820:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0909/021835.820:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0909/021835.820:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/010958.932:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/010958.932:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/010958.932:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/011958.940:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/012458.947:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/012458.947:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/012458.947:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/013958.959:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/013958.959:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/013958.959:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/015458.973:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/015458.973:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/015458.973:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/020958.980:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/020958.980:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/020958.980:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/022458.996:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/022458.996:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/022458.996:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0911/022554.491:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0911/022554.491:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0911/022554.491:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0911/022554.522:ERROR:exception_snapshot_win.cc(99)] thread ID 13464 not found in process
+[0911/022554.491:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0911/022554.522:ERROR:exception_snapshot_win.cc(99)] thread ID 2680 not found in process
+[0911/022554.491:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0911/022554.522:ERROR:exception_snapshot_win.cc(99)] thread ID 11840 not found in process
+[0911/022554.522:ERROR:exception_snapshot_win.cc(99)] thread ID 13740 not found in process
+[0911/022554.522:ERROR:exception_snapshot_win.cc(99)] thread ID 11628 not found in process
+[0918/183738.973:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0918/183738.974:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0918/183738.974:ERROR:crash_report_database_win.cc(469)] failed to stat report

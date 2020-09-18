@@ -4,12 +4,23 @@ import DisplayCard from "./DisplayCard";
 
 function DisplayStack(props) {
 
-    // const [stack, changeStack] = useState(props.stack_state);
-    // useEffect(() => { changeStack(props.stack_state) }, [props.stack_state]);
+    const isChosenAmongYouV2 = (chosenCard) => {
+        props.isChosenAmongYou(chosenCard);
+    }
 
     return (
+
         <div className={props.type === "stack" ? "display-stack" :  props.type === "pile" ? "display-pile" : "display-chose"}>
-            {props.stack_state.map((card) => <DisplayCard key={card.id} color={card.color} figure={card.figure} flipped={card.flipped}/>)}
+            {props.stack_state.map(card =>
+                    <DisplayCard
+                        key={card.id}
+                        id={card.id}
+                        color={card.color}
+                        figure={card.figure}
+                        flipped={card.flipped}
+                        chosen={card.chosen}
+                        isChosenAmongYouV2={isChosenAmongYouV2}
+                    />)}
         </div>
     )
 
