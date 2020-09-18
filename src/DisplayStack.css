@@ -1,22 +1,28 @@
+.display-stack {
+    width: 96px;
+    height: 144px;
+    background-color: rgba(32, 16, 9, 0.5);
+    border-radius: 5px;
+}
+
 .display-stack .card:not(:first-child) {
     margin-top: -110px;
 }
 
 .display-pile {
-    width: 100px;
-    height: 150px;
+    width: 96px;
+    height: 144px;
     background-color: rgba(32, 16, 9, 0.5);
     border-radius: 5px;
 }
 
-/*.display-chose {*/
-/*    display: flex;*/
-/*}*/
+.display-pile .card {
+    position: absolute;
+}
 
-/*.display-chose .card:not(:first-child) {*/
-/*    margin-top: -110px;*/
-/*}*/
-
-/*.display-chosen .card:not(:first-child){*/
-/*    margin-right: -100px;*/
-/*}*/
+.display-chose {
+    width: 96px;
+    height: 144px;
+    background-color: rgba(32, 16, 9, 0.5);
+    border-radius: 5px;
+}

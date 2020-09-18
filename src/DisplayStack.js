@@ -5,7 +5,7 @@ import DisplayCard from "./DisplayCard";
 function DisplayStack(props) {
 
     const isChosenAmongYouV2 = (chosenCard) => {
-        props.isChosenAmongYou(chosenCard);
+        props.isChosenAmongYou(chosenCard, props.size);
     }
 
     return (

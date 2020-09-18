@@ -42,7 +42,8 @@ function App() {
 
     const [pile, changePile] = useState(deck);
     const [currCard, setCurrCard] = useState(pile[pile.length - 1])
-    const [chosen_state, setChosen_state] = useState([]);
+
+    const [chosen_state, setChosen_state] = useState({state: [], fromWhichStack: undefined});
 
     const handleAddToStack = (event, card) => {
         if(event.target.id === "1") {
@@ -76,22 +77,56 @@ function App() {
     }
 
     const handleAddToPile = (event, card) => {
+        if(event.target.id === "1") {
+            pile1.addCard(card[0]);
+            setPile1State(pile1.state);
+        } else if(event.target.id === "2") {
+            pile2.addCard(card[0]);
+            setPile2State(pile2.state);
+        } else if(event.target.id === "3") {
+            pile3.addCard(card[0]);
+            setPile3State(pile3.state);
+        } else if(event.target.id === "4") {
+            pile4.addCard(card[0]);
+            setPile4State(pile4.state);
+        }
 
+        if(chosen_state.fromWhichStack === 1) {
+            stack1.removeCard();
+            setStack1State(stack1.state);
+        } else if(chosen_state.fromWhichStack === 2) {
+            stack2.removeCard();
+            setStack2State(stack2.state);
+        } else if(chosen_state.fromWhichStack === 3) {
+            stack3.removeCard();
+            setStack3State(stack3.state);
+        } else if(chosen_state.fromWhichStack === 4) {
+            stack4.removeCard();
+            setStack4State(stack4.state);
+        } else if(chosen_state.fromWhichStack === 5) {
+            stack5.removeCard();
+            setStack5State(stack5.state);
+        } else if(chosen_state.fromWhichStack === 6) {
+            stack6.removeCard();
+            setStack6State(stack6.state);
+        } else if(chosen_state.fromWhichStack === 7) {
+            stack7.removeCard();
+            setStack7State(stack7.state);
+        }
+
+        setChosen_state({state: [], fromWhichStack: undefined});
     }
 
-    const handleMark = () => {
-
-    }
-
-    const isChosenAmongYou = (cardId) => {
-        console.log(cardId)
-        if (cardId === null) {
-            setChosen_state([]);
-        } else if (chosen_state.length !== 0) {
+    const isChosenAmongYou = (cards, num) => {
+        console.log(cards);
+        console.log(num);
+        if (cards === null) {
+            setChosen_state({state: [], fromWhichStack: undefined});
+        } else if (chosen_state.state.length !== 0) {
 
         } else {
-            const chosenPile = deck_copy.find(x => x.id === cardId);
-            setChosen_state([chosenPile]);
+            const chosenPile = deck_copy.find(x => x.id === cards);
+            setChosen_state({state: [chosenPile], fromWhichStack: num});
         }
     }
 
@@ -113,57 +148,50 @@ function App() {
                 </div>
                 <div className="display-chosen">
                     <h2>Zaznaczone:</h2>
-                    <div className="chosen"><DisplayStack type={chosen.type} size={chosen.size} stack_state={chosen_state}/></div>
+                    <div className="chosen"><DisplayStack type={chosen.state.type} size={chosen.state.size} stack_state={chosen_state.state}/></div>
                 </div>
-                {/*<div className="pile-buttons">*/}
-                {/*    <button id="1" onClick={(e) => handleAddToPile(e, currCard)}>1</button>*/}
-                {/*    <button id="2" onClick={(e) => handleAddToPile(e, currCard)}>2</button>*/}
-                {/*    <button id="3" onClick={(e) => handleAddToPile(e, currCard)}>3</button>*/}
-                {/*    <button id="4" onClick={(e) => handleAddToPile(e, currCard)}>4</button>*/}
-                {/*</div>*/}
+                <div className="pile-buttons">
+                    <button id="1" onClick={(e) => handleAddToPile(e, chosen_state.state)}>1</button>
+                    <button id="2" onClick={(e) => handleAddToPile(e, chosen_state.state)}>2</button>
+                    <button id="3" onClick={(e) => handleAddToPile(e, chosen_state.state)}>3</button>
+                    <button id="4" onClick={(e) => handleAddToPile(e, chosen_state.state)}>4</button>
+                </div>
             </div>
             <div className="card-place">
-                {/*<div className="piles">*/}
-                {/*    <div className="pile">*/}
-                {/*        <DisplayStack type={pile1.type} size={pile1.size} stack_state={pile1_state}/>*/}
-                {/*    </div>*/}
-                {/*    <div className="pile">*/}
-                {/*        <DisplayStack type={pile2.type} size={pile2.size} stack_state={pile2_state}/>*/}
-                {/*    </div>*/}
-                {/*    <div className="pile">*/}
-                {/*        <DisplayStack type={pile3.type} size={pile3.size} stack_state={pile3_state}/>*/}
-                {/*    </div>*/}
-                {/*    <div className="pile">*/}
-                {/*        <DisplayStack type={pile4.type} size={pile4.size} stack_state={pile4_state}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+                <div className="piles">
+                    <div className="pile">
+                        <DisplayStack type={pile1.type} size={pile1.size} stack_state={pile1_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile2.type} size={pile2.size} stack_state={pile2_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile3.type} size={pile3.size} stack_state={pile3_state}/>
+                    </div>
+                    <div className="pile">
+                        <DisplayStack type={pile4.type} size={pile4.size} stack_state={pile4_state}/>
+                    </div>
+                </div>
                 <div className="stacks">
                     <div className="stack">
-                        {/*<h2>Stos 1</h2>*/}
                         <DisplayStack type={stack1.type} size={stack1.size} stack_state={stack1_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 2</h2>*/}
                         <DisplayStack type={stack2.type} size={stack2.size} stack_state={stack2_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 3</h2>*/}
                         <DisplayStack type={stack3.type} size={stack3.size} stack_state={stack3_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 4</h2>*/}
                         <DisplayStack type={stack4.type} size={stack4.size} stack_state={stack4_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 5</h2>*/}
                         <DisplayStack type={stack5.type} size={stack5.size} stack_state={stack5_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 6</h2>*/}
                         <DisplayStack type={stack6.type} size={stack6.size} stack_state={stack6_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                     <div className="stack">
-                        {/*<h2>Stos 7</h2>*/}
                         <DisplayStack type={stack7.type} size={stack7.size} stack_state={stack7_state} isChosenAmongYou={isChosenAmongYou}/>
                     </div>
                 </div>

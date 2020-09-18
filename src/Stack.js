@@ -9,6 +9,10 @@ class Stack {
         this.state.push(card);
     }
 
+    removeCard() {
+        this.state.pop();
+    }
+
 }
 
 export default Stack;
