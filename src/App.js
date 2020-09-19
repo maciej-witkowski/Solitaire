@@ -46,75 +46,163 @@ function App() {
     const [chosen_state, setChosen_state] = useState({state: [], fromWhichStack: undefined});
 
     const handleAddToStack = (event, card) => {
-        if(event.target.id === "1") {
-            stack1.addCard(card);
-            setStack1State(stack1.state);
-        } else if(event.target.id === "2") {
-            stack2.addCard(card);
-            setStack2State(stack2.state);
-        } else if(event.target.id === "3") {
-            stack3.addCard(card);
-            setStack3State(stack3.state);
-        } else if(event.target.id === "4") {
-            stack4.addCard(card);
-            setStack4State(stack4.state);
-        } else if(event.target.id === "5") {
-            stack5.addCard(card);
-            setStack5State(stack5.state);
-        } else if(event.target.id === "6") {
-            stack6.addCard(card);
-            setStack6State(stack6.state);
-        } else if(event.target.id === "7") {
-            stack7.addCard(card);
-            setStack7State(stack7.state);
+        if (chosen_state.state.length !== 0) {
+            if(event.target.id === "1") {
+                stack1.addCard(card[0]);
+                setStack1State(stack1.state);
+            } else if(event.target.id === "2") {
+                stack2.addCard(card[0]);
+                setStack2State(stack2.state);
+            } else if(event.target.id === "3") {
+                stack3.addCard(card[0]);
+                setStack3State(stack3.state);
+            } else if(event.target.id === "4") {
+                stack4.addCard(card[0]);
+                setStack4State(stack4.state);
+            } else if(event.target.id === "5") {
+                stack5.addCard(card[0]);
+                setStack5State(stack5.state);
+            } else if(event.target.id === "6") {
+                stack6.addCard(card[0]);
+                setStack6State(stack6.state);
+            } else if(event.target.id === "7") {
+                stack7.addCard(card[0]);
+                setStack7State(stack7.state);
+            }
+
+            if(chosen_state.fromWhichStack === 1) {
+                stack1.removeCard();
+                if (stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].flip();
+                setStack1State(stack1.state);
+            } else if(chosen_state.fromWhichStack === 2) {
+                stack2.removeCard();
+                if (stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].flip();
+                setStack2State(stack2.state);
+            } else if(chosen_state.fromWhichStack === 3) {
+                stack3.removeCard();
+                if (stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].flip();
+                setStack3State(stack3.state);
+            } else if(chosen_state.fromWhichStack === 4) {
+                stack4.removeCard();
+                if (stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].flip();
+                setStack4State(stack4.state);
+            } else if(chosen_state.fromWhichStack === 5) {
+                stack5.removeCard();
+                if (stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].flip();
+                setStack5State(stack5.state);
+            } else if(chosen_state.fromWhichStack === 6) {
+                stack6.removeCard();
+                if (stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].flip();
+                setStack6State(stack6.state);
+            } else if(chosen_state.fromWhichStack === 7) {
+                stack7.removeCard();
+                if (stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].flip();
+                setStack7State(stack7.state);
+            }
+
+            setChosen_state({state: [], fromWhichStack: undefined});
+        } else {
+            if(event.target.id === "1") {
+                stack1.addCard(card);
+                setStack1State(stack1.state);
+            } else if(event.target.id === "2") {
+                stack2.addCard(card);
+                setStack2State(stack2.state);
+            } else if(event.target.id === "3") {
+                stack3.addCard(card);
+                setStack3State(stack3.state);
+            } else if(event.target.id === "4") {
+                stack4.addCard(card);
+                setStack4State(stack4.state);
+            } else if(event.target.id === "5") {
+                stack5.addCard(card);
+                setStack5State(stack5.state);
+            } else if(event.target.id === "6") {
+                stack6.addCard(card);
+                setStack6State(stack6.state);
+            } else if(event.target.id === "7") {
+                stack7.addCard(card);
+                setStack7State(stack7.state);
+            }
+
+            let copy = pile;
+            copy.pop();
+            changePile(copy);
+
+            setCurrCard(pile[pile.length - 1]);
         }
-
-        let copy = pile;
-        copy.pop();
-        changePile(copy);
-
-        setCurrCard(pile[pile.length - 1]);
     }
 
     const handleAddToPile = (event, card) => {
-        if(event.target.id === "1") {
-            pile1.addCard(card[0]);
-            setPile1State(pile1.state);
-        } else if(event.target.id === "2") {
-            pile2.addCard(card[0]);
-            setPile2State(pile2.state);
-        } else if(event.target.id === "3") {
-            pile3.addCard(card[0]);
-            setPile3State(pile3.state);
-        } else if(event.target.id === "4") {
-            pile4.addCard(card[0]);
-            setPile4State(pile4.state);
+        if (chosen_state.state.length !== 0) {
+            if(event.target.id === "1") {
+                pile1.addCard(card[0]);
+                setPile1State(pile1.state);
+            } else if(event.target.id === "2") {
+                pile2.addCard(card[0]);
+                setPile2State(pile2.state);
+            } else if(event.target.id === "3") {
+                pile3.addCard(card[0]);
+                setPile3State(pile3.state);
+            } else if(event.target.id === "4") {
+                pile4.addCard(card[0]);
+                setPile4State(pile4.state);
+            }
+
+            if(chosen_state.fromWhichStack === 1) {
+                stack1.removeCard();
+                if (stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].flip();
+                setStack1State(stack1.state);
+            } else if(chosen_state.fromWhichStack === 2) {
+                stack2.removeCard();
+                if (stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].flip();
+                setStack2State(stack2.state);
+            } else if(chosen_state.fromWhichStack === 3) {
+                stack3.removeCard();
+                if (stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].flip();
+                setStack3State(stack3.state);
+            } else if(chosen_state.fromWhichStack === 4) {
+                stack4.removeCard();
+                if (stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].flip();
+                setStack4State(stack4.state);
+            } else if(chosen_state.fromWhichStack === 5) {
+                stack5.removeCard();
+                if (stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].flip();
+                setStack5State(stack5.state);
+            } else if(chosen_state.fromWhichStack === 6) {
+                stack6.removeCard();
+                if (stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].flip();
+                setStack6State(stack6.state);
+            } else if(chosen_state.fromWhichStack === 7) {
+                stack7.removeCard();
+                if (stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].flip();
+                setStack7State(stack7.state);
+            }
+
+            setChosen_state({state: [], fromWhichStack: undefined});
+
+        } else {
+            if(event.target.id === "1") {
+                pile1.addCard(card);
+                setPile1State(pile1.state);
+            } else if(event.target.id === "2") {
+                pile2.addCard(card);
+                setPile2State(pile2.state);
+            } else if(event.target.id === "3") {
+                pile3.addCard(card);
+                setPile3State(pile3.state);
+            } else if(event.target.id === "4") {
+                pile4.addCard(card);
+                setPile4State(pile4.state);
+            }
+
+            let copy = pile;
+            copy.pop();
+            changePile(copy);
+
+            setCurrCard(pile[pile.length - 1]);
         }
 
-        if(chosen_state.fromWhichStack === 1) {
-            stack1.removeCard();
-            setStack1State(stack1.state);
-        } else if(chosen_state.fromWhichStack === 2) {
-            stack2.removeCard();
-            setStack2State(stack2.state);
-        } else if(chosen_state.fromWhichStack === 3) {
-            stack3.removeCard();
-            setStack3State(stack3.state);
-        } else if(chosen_state.fromWhichStack === 4) {
-            stack4.removeCard();
-            setStack4State(stack4.state);
-        } else if(chosen_state.fromWhichStack === 5) {
-            stack5.removeCard();
-            setStack5State(stack5.state);
-        } else if(chosen_state.fromWhichStack === 6) {
-            stack6.removeCard();
-            setStack6State(stack6.state);
-        } else if(chosen_state.fromWhichStack === 7) {
-            stack7.removeCard();
-            setStack7State(stack7.state);
-        }
-
-        setChosen_state({state: [], fromWhichStack: undefined});
     }
 
     const isChosenAmongYou = (cards, num) => {
@@ -146,9 +234,24 @@ function App() {
                     <button id="6" onClick={(e) => handleAddToStack(e, currCard)}>6</button>
                     <button id="7" onClick={(e) => handleAddToStack(e, currCard)}>7</button>
                 </div>
+                <div className="pile-buttons">
+                    <button id="1" onClick={(e) => handleAddToPile(e, currCard)}>1</button>
+                    <button id="2" onClick={(e) => handleAddToPile(e, currCard)}>2</button>
+                    <button id="3" onClick={(e) => handleAddToPile(e, currCard)}>3</button>
+                    <button id="4" onClick={(e) => handleAddToPile(e, currCard)}>4</button>
+                </div>
                 <div className="display-chosen">
                     <h2>Zaznaczone:</h2>
                     <div className="chosen"><DisplayStack type={chosen.state.type} size={chosen.state.size} stack_state={chosen_state.state}/></div>
+                </div>
+                <div className="stack-buttons">
+                    <button id="1" onClick={(e) => handleAddToStack(e, chosen_state.state)}>1</button>
+                    <button id="2" onClick={(e) => handleAddToStack(e, chosen_state.state)}>2</button>
+                    <button id="3" onClick={(e) => handleAddToStack(e, chosen_state.state)}>3</button>
+                    <button id="4" onClick={(e) => handleAddToStack(e, chosen_state.state)}>4</button>
+                    <button id="5" onClick={(e) => handleAddToStack(e, chosen_state.state)}>5</button>
+                    <button id="6" onClick={(e) => handleAddToStack(e, chosen_state.state)}>6</button>
+                    <button id="7" onClick={(e) => handleAddToStack(e, chosen_state.state)}>7</button>
                 </div>
                 <div className="pile-buttons">
                     <button id="1" onClick={(e) => handleAddToPile(e, chosen_state.state)}>1</button>
