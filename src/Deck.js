@@ -18,12 +18,11 @@ export function create_deck() {
 
 export function shuffle(deck) {
     deck.sort(() => Math.random() - 0.5);
-    // for(let i = 0; i < deck.length; i++) {
-    //     if (i === 1 || i === 3 || i === 4 || i === 6 || i === 7 || i === 8 || i === 10 || i === 11 || i === 12 || i === 13 || i === 15 || i === 16 || i === 17 || i === 18 || i === 19 || i === 21 || i === 22 || i === 23 || i === 24 || i === 25 || i === 26) {
-    //         deck[i].flip();
-    //     }
-    // }
-    for (let i = 0; i < 27; i++) {
-        deck[i].flip();
+    for(let i = 0; i < deck.length; i++) {
+        if (i < deck.length - 1) deck[i].nextCard = deck[i + 1].id;
+    }
+    for (let i = 0; i < 28; i++) {
+        if (i !== 0 && i !== 2 && i !== 5 && i !== 9 && i !== 14 && i !== 20 && i !== 27)
+            deck[i].flip();
     }
 }

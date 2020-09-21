@@ -3,6 +3,7 @@ class Card {
         this.id = id;
         this.color = color;
         this.figure = figure;
+        this.nextCard = undefined;
         this.flipped = false;
         this.chosen = false;
     }
@@ -13,6 +14,10 @@ class Card {
 
     choose() {
         this.chosen = !this.chosen;
+    }
+
+    setNextCard(cardId) {
+        this.nextCard = cardId;
     }
 
 }

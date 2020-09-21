@@ -48,79 +48,93 @@ function App() {
     const handleAddToStack = (event, card) => {
         if (chosen_state.state.length !== 0) {
             if(event.target.id === "1") {
+                if(stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].setNextCard(card[0].id);
                 stack1.addCard(card[0]);
                 setStack1State(stack1.state);
             } else if(event.target.id === "2") {
+                if(stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].setNextCard(card[0].id);
                 stack2.addCard(card[0]);
                 setStack2State(stack2.state);
             } else if(event.target.id === "3") {
+                if(stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].setNextCard(card[0].id);
                 stack3.addCard(card[0]);
                 setStack3State(stack3.state);
             } else if(event.target.id === "4") {
+                if(stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].setNextCard(card[0].id);
                 stack4.addCard(card[0]);
                 setStack4State(stack4.state);
             } else if(event.target.id === "5") {
+                if(stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].setNextCard(card[0].id);
                 stack5.addCard(card[0]);
                 setStack5State(stack5.state);
             } else if(event.target.id === "6") {
+                if(stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].setNextCard(card[0].id);
                 stack6.addCard(card[0]);
                 setStack6State(stack6.state);
             } else if(event.target.id === "7") {
+                if(stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].setNextCard(card[0].id);
                 stack7.addCard(card[0]);
                 setStack7State(stack7.state);
             }
 
             if(chosen_state.fromWhichStack === 1) {
                 stack1.removeCard();
-                if (stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].flip();
+                if (stack1.state[stack1.state.length - 1] && stack1.state[stack1.state.length - 1].flipped) stack1.state[stack1.state.length - 1].flip();
                 setStack1State(stack1.state);
             } else if(chosen_state.fromWhichStack === 2) {
                 stack2.removeCard();
-                if (stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].flip();
+                if (stack2.state[stack2.state.length - 1] && stack2.state[stack2.state.length - 1].flipped) stack2.state[stack2.state.length - 1].flip();
                 setStack2State(stack2.state);
             } else if(chosen_state.fromWhichStack === 3) {
                 stack3.removeCard();
-                if (stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].flip();
+                if (stack3.state[stack3.state.length - 1] && stack3.state[stack3.state.length - 1].flipped) stack3.state[stack3.state.length - 1].flip();
                 setStack3State(stack3.state);
             } else if(chosen_state.fromWhichStack === 4) {
                 stack4.removeCard();
-                if (stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].flip();
+                if (stack4.state[stack4.state.length - 1] && stack4.state[stack4.state.length - 1].flipped) stack4.state[stack4.state.length - 1].flip();
                 setStack4State(stack4.state);
             } else if(chosen_state.fromWhichStack === 5) {
                 stack5.removeCard();
-                if (stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].flip();
+                if (stack5.state[stack5.state.length - 1] && stack5.state[stack5.state.length - 1].flipped) stack5.state[stack5.state.length - 1].flip();
                 setStack5State(stack5.state);
             } else if(chosen_state.fromWhichStack === 6) {
                 stack6.removeCard();
-                if (stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].flip();
+                if (stack6.state[stack6.state.length - 1] && stack6.state[stack6.state.length - 1].flipped) stack6.state[stack6.state.length - 1].flip();
                 setStack6State(stack6.state);
             } else if(chosen_state.fromWhichStack === 7) {
                 stack7.removeCard();
-                if (stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].flip();
+                if (stack7.state[stack7.state.length - 1] && stack7.state[stack7.state.length - 1].flipped) stack7.state[stack7.state.length - 1].flip();
                 setStack7State(stack7.state);
             }
 
             setChosen_state({state: [], fromWhichStack: undefined});
         } else {
             if(event.target.id === "1") {
+                if(stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].setNextCard(card.id);
                 stack1.addCard(card);
                 setStack1State(stack1.state);
             } else if(event.target.id === "2") {
+                if(stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].setNextCard(card.id);
                 stack2.addCard(card);
                 setStack2State(stack2.state);
             } else if(event.target.id === "3") {
+                if(stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].setNextCard(card.id);
                 stack3.addCard(card);
                 setStack3State(stack3.state);
             } else if(event.target.id === "4") {
+                if(stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].setNextCard(card.id);
                 stack4.addCard(card);
                 setStack4State(stack4.state);
             } else if(event.target.id === "5") {
+                if(stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].setNextCard(card.id);
                 stack5.addCard(card);
                 setStack5State(stack5.state);
             } else if(event.target.id === "6") {
+                if(stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].setNextCard(card.id);
                 stack6.addCard(card);
                 setStack6State(stack6.state);
             } else if(event.target.id === "7") {
+                if(stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].setNextCard(card.id);
                 stack7.addCard(card);
                 setStack7State(stack7.state);
             }
@@ -151,31 +165,31 @@ function App() {
 
             if(chosen_state.fromWhichStack === 1) {
                 stack1.removeCard();
-                if (stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].flip();
+                if (stack1.state[stack1.state.length - 1] && stack1.state[stack1.state.length - 1].flipped) stack1.state[stack1.state.length - 1].flip();
                 setStack1State(stack1.state);
             } else if(chosen_state.fromWhichStack === 2) {
                 stack2.removeCard();
-                if (stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].flip();
+                if (stack2.state[stack2.state.length - 1] && stack2.state[stack2.state.length - 1].flipped) stack2.state[stack2.state.length - 1].flip();
                 setStack2State(stack2.state);
             } else if(chosen_state.fromWhichStack === 3) {
                 stack3.removeCard();
-                if (stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].flip();
+                if (stack3.state[stack3.state.length - 1] && stack3.state[stack3.state.length - 1].flipped) stack3.state[stack3.state.length - 1].flip();
                 setStack3State(stack3.state);
             } else if(chosen_state.fromWhichStack === 4) {
                 stack4.removeCard();
-                if (stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].flip();
+                if (stack4.state[stack4.state.length - 1] && stack4.state[stack4.state.length - 1].flipped) stack4.state[stack4.state.length - 1].flip();
                 setStack4State(stack4.state);
             } else if(chosen_state.fromWhichStack === 5) {
                 stack5.removeCard();
-                if (stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].flip();
+                if (stack5.state[stack5.state.length - 1] && stack5.state[stack5.state.length - 1].flipped) stack5.state[stack5.state.length - 1].flip();
                 setStack5State(stack5.state);
             } else if(chosen_state.fromWhichStack === 6) {
                 stack6.removeCard();
-                if (stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].flip();
+                if (stack6.state[stack6.state.length - 1] && stack6.state[stack6.state.length - 1].flipped) stack6.state[stack6.state.length - 1].flip();
                 setStack6State(stack6.state);
             } else if(chosen_state.fromWhichStack === 7) {
                 stack7.removeCard();
-                if (stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].flip();
+                if (stack7.state[stack7.state.length - 1] && stack7.state[stack7.state.length - 1].flipped) stack7.state[stack7.state.length - 1].flip();
                 setStack7State(stack7.state);
             }
 
@@ -207,7 +221,6 @@ function App() {
 
     const isChosenAmongYou = (cards, num) => {
         console.log(cards);
-        console.log(num);
         if (cards === null) {
             setChosen_state({state: [], fromWhichStack: undefined});
         } else if (chosen_state.state.length !== 0) {
