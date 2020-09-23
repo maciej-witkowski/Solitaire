@@ -22,7 +22,7 @@ export function shuffle(deck) {
         if (i < deck.length - 1) deck[i].nextCard = deck[i + 1].id;
     }
     for (let i = 0; i < 28; i++) {
-        if (i !== 0 && i !== 2 && i !== 5 && i !== 9 && i !== 14 && i !== 20 && i !== 27)
-            deck[i].flip();
+        // if (i !== 0 && i !== 2 && i !== 5 && i !== 9 && i !== 14 && i !== 20 && i !== 27)
+        //     deck[i].flip();
     }
 }

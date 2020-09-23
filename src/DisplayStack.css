@@ -21,8 +21,14 @@
 }
 
 .display-chose {
+    display: flex;
+    justify-content: center;
     width: 96px;
     height: 144px;
     background-color: rgba(32, 16, 9, 0.5);
     border-radius: 5px;
+}
+
+.display-chose .card:not(:first-child) {
+    margin-left: -60px;
 }

@@ -4,26 +4,17 @@ import DisplayCard from "./DisplayCard";
 
 function DisplayStack(props) {
 
-    // if (props.type === "stack") props.stack_state[props.size - 1].flip();
-
     const isChosenAmongYouV2 = (chosenCard) => {
-        props.isChosenAmongYou(chosenCard, props.size);
+        let chosenCards = chosenCard ? [chosenCard] : null;
+        if (chosenCard) for (let i = props.stack_state.indexOf(props.stack_state.find(x => x.id === chosenCard)); i < props.stack_state.length; i ++) {
+            if (props.stack_state[i].nextCard) chosenCards.push(props.stack_state[i].id);
+        }
+        props.isChosenAmongYou(chosenCards, props.size);
     }
 
     return (
         <div className={props.type === "stack" ? "display-stack" :  props.type === "pile" ? "display-pile" : "display-chose"}>
             {props.stack_state.map(card =>
-                // card === props.stack_state[props.stack_state.length - 1] ?
-                //     <DisplayCard
-                //         key={card.id}
-                //         id={card.id}
-                //         color={card.color}
-                //         figure={card.figure}
-                //         nextCard={card.nextCard}
-                //         flipped={false}
-                //         chosen={card.chosen}
-                //         isChosenAmongYouV2={isChosenAmongYouV2}
-                //     /> :
                     <DisplayCard
                         key={card.id}
                         id={card.id}

@@ -20,7 +20,9 @@ function DisplayCard(props) {
 
     const handleClick = () => {
       setClicked(!isClicked);
-      if (!isClicked) props.isChosenAmongYouV2(props.id);
+      if (!isClicked) {
+          props.isChosenAmongYouV2(props.id);
+      }
       else props.isChosenAmongYouV2(null);
     };
 

@@ -221,13 +221,64 @@ function App() {
 
     const isChosenAmongYou = (cards, num) => {
         console.log(cards);
+        console.log(num);
         if (cards === null) {
             setChosen_state({state: [], fromWhichStack: undefined});
         } else if (chosen_state.state.length !== 0) {
 
         } else {
-            const chosenPile = deck_copy.find(x => x.id === cards);
-            setChosen_state({state: [chosenPile], fromWhichStack: num});
+            const chosenPile = deck_copy.filter(x => cards.includes(x.id)).sort(function (a, b) {
+                let A = a.id, B = b.id;
+                if (cards.indexOf(A) > cards.indexOf(B)) return 1;
+                else return -1;
+            });
+            // const chosenPile = cards.length > 1 ? deck_copy.filter(x => cards.includes(x.id)) : deck_copy.find(x => x.id === cards);
+            setChosen_state({state: chosenPile, fromWhichStack: num});
+
+            // if (num === 1) {
+            //     stack1.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack1State(stack1.state);
+            // } else if (num === 2) {
+            //     stack2.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack2State(stack2.state);
+            // } else if (num === 3) {
+            //     stack3.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack3State(stack3.state);
+            // } else if (num === 4) {
+            //     stack4.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack4State(stack4.state);
+            // } else if (num === 5) {
+            //     stack5.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack5State(stack5.state);
+            // } else if (num === 6) {
+            //     stack6.state.map(x => {
+            //         if (cards.includes(x.id)) return x.choose();
+            //         else return null;
+            //     });
+            //     setStack6State(stack6.state);
+            // } else if (num === 7) {
+            //     stack7.state.map(x => {
+            //         if (cards.includes(x.id)) return x.chosen = !x.chosen;
+            //         else return null;
+            //     });
+            //     setStack7State(stack7.state);
+            // }
+
         }
     }
 
