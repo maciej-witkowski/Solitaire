@@ -48,66 +48,81 @@ function App() {
     const handleAddToStack = (event, card) => {
         if (chosen_state.state.length !== 0) {
             if(event.target.id === "1") {
-                if(stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].setNextCard(card[0].id);
-                stack1.addCard(card[0]);
-                setStack1State(stack1.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].setNextCard(card[i].id);
+                    stack1.addCard(card[i]);
+                    setStack1State(stack1.state);
+                }
             } else if(event.target.id === "2") {
-                if(stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].setNextCard(card[0].id);
-                stack2.addCard(card[0]);
-                setStack2State(stack2.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack2.state[stack2.state.length - 1]) stack2.state[stack2.state.length - 1].setNextCard(card[i].id);
+                    stack2.addCard(card[i]);
+                    setStack2State(stack2.state);
+                }
             } else if(event.target.id === "3") {
-                if(stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].setNextCard(card[0].id);
-                stack3.addCard(card[0]);
-                setStack3State(stack3.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack3.state[stack3.state.length - 1]) stack3.state[stack3.state.length - 1].setNextCard(card[i].id);
+                    stack3.addCard(card[i]);
+                    setStack3State(stack3.state);
+                }
             } else if(event.target.id === "4") {
-                if(stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].setNextCard(card[0].id);
-                stack4.addCard(card[0]);
-                setStack4State(stack4.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack4.state[stack4.state.length - 1]) stack4.state[stack4.state.length - 1].setNextCard(card[i].id);
+                    stack4.addCard(card[i]);
+                    setStack4State(stack4.state);
+                }
             } else if(event.target.id === "5") {
-                if(stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].setNextCard(card[0].id);
-                stack5.addCard(card[0]);
-                setStack5State(stack5.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack5.state[stack5.state.length - 1]) stack5.state[stack5.state.length - 1].setNextCard(card[i].id);
+                    stack5.addCard(card[i]);
+                    setStack5State(stack5.state);
+                }
             } else if(event.target.id === "6") {
-                if(stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].setNextCard(card[0].id);
-                stack6.addCard(card[0]);
-                setStack6State(stack6.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack6.state[stack6.state.length - 1]) stack6.state[stack6.state.length - 1].setNextCard(card[i].id);
+                    stack6.addCard(card[i]);
+                    setStack6State(stack6.state);
+                }
             } else if(event.target.id === "7") {
-                if(stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].setNextCard(card[0].id);
-                stack7.addCard(card[0]);
-                setStack7State(stack7.state);
+                for (let i = 0; i < card.length; i++) {
+                    if(stack7.state[stack7.state.length - 1]) stack7.state[stack7.state.length - 1].setNextCard(card[i].id);
+                    stack7.addCard(card[i]);
+                    setStack7State(stack7.state);
+                }
             }
 
             if(chosen_state.fromWhichStack === 1) {
-                stack1.removeCard();
+                stack1.removeCards(card);
                 if (stack1.state[stack1.state.length - 1] && stack1.state[stack1.state.length - 1].flipped) stack1.state[stack1.state.length - 1].flip();
                 setStack1State(stack1.state);
             } else if(chosen_state.fromWhichStack === 2) {
-                stack2.removeCard();
+                stack2.removeCards(card);
                 if (stack2.state[stack2.state.length - 1] && stack2.state[stack2.state.length - 1].flipped) stack2.state[stack2.state.length - 1].flip();
                 setStack2State(stack2.state);
             } else if(chosen_state.fromWhichStack === 3) {
-                stack3.removeCard();
+                stack3.removeCards(card);
                 if (stack3.state[stack3.state.length - 1] && stack3.state[stack3.state.length - 1].flipped) stack3.state[stack3.state.length - 1].flip();
                 setStack3State(stack3.state);
             } else if(chosen_state.fromWhichStack === 4) {
-                stack4.removeCard();
+                stack4.removeCards(card);
                 if (stack4.state[stack4.state.length - 1] && stack4.state[stack4.state.length - 1].flipped) stack4.state[stack4.state.length - 1].flip();
                 setStack4State(stack4.state);
             } else if(chosen_state.fromWhichStack === 5) {
-                stack5.removeCard();
+                stack5.removeCards(card);
                 if (stack5.state[stack5.state.length - 1] && stack5.state[stack5.state.length - 1].flipped) stack5.state[stack5.state.length - 1].flip();
                 setStack5State(stack5.state);
             } else if(chosen_state.fromWhichStack === 6) {
-                stack6.removeCard();
+                stack6.removeCards(card);
                 if (stack6.state[stack6.state.length - 1] && stack6.state[stack6.state.length - 1].flipped) stack6.state[stack6.state.length - 1].flip();
                 setStack6State(stack6.state);
             } else if(chosen_state.fromWhichStack === 7) {
-                stack7.removeCard();
+                stack7.removeCards(card);
                 if (stack7.state[stack7.state.length - 1] && stack7.state[stack7.state.length - 1].flipped) stack7.state[stack7.state.length - 1].flip();
                 setStack7State(stack7.state);
             }
 
             setChosen_state({state: [], fromWhichStack: undefined});
+
         } else {
             if(event.target.id === "1") {
                 if(stack1.state[stack1.state.length - 1]) stack1.state[stack1.state.length - 1].setNextCard(card.id);
@@ -232,52 +247,7 @@ function App() {
                 if (cards.indexOf(A) > cards.indexOf(B)) return 1;
                 else return -1;
             });
-            // const chosenPile = cards.length > 1 ? deck_copy.filter(x => cards.includes(x.id)) : deck_copy.find(x => x.id === cards);
             setChosen_state({state: chosenPile, fromWhichStack: num});
-
-            // if (num === 1) {
-            //     stack1.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack1State(stack1.state);
-            // } else if (num === 2) {
-            //     stack2.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack2State(stack2.state);
-            // } else if (num === 3) {
-            //     stack3.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack3State(stack3.state);
-            // } else if (num === 4) {
-            //     stack4.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack4State(stack4.state);
-            // } else if (num === 5) {
-            //     stack5.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack5State(stack5.state);
-            // } else if (num === 6) {
-            //     stack6.state.map(x => {
-            //         if (cards.includes(x.id)) return x.choose();
-            //         else return null;
-            //     });
-            //     setStack6State(stack6.state);
-            // } else if (num === 7) {
-            //     stack7.state.map(x => {
-            //         if (cards.includes(x.id)) return x.chosen = !x.chosen;
-            //         else return null;
-            //     });
-            //     setStack7State(stack7.state);
-            // }
 
         }
     }

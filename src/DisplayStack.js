@@ -5,10 +5,14 @@ import DisplayCard from "./DisplayCard";
 function DisplayStack(props) {
 
     const isChosenAmongYouV2 = (chosenCard) => {
-        let chosenCards = chosenCard ? [chosenCard] : null;
+        let chosenCards = chosenCard ? [] : null;
         if (chosenCard) for (let i = props.stack_state.indexOf(props.stack_state.find(x => x.id === chosenCard)); i < props.stack_state.length; i ++) {
-            if (props.stack_state[i].nextCard) chosenCards.push(props.stack_state[i].id);
+            if (props.stack_state[i].nextCard || props.stack_state[i] === props.stack_state[props.stack_state.length - 1]) {
+                chosenCards.push(props.stack_state[i].id);
+                console.log(props.stack_state[i]);
+            }
         }
+        console.log(chosenCards);
         props.isChosenAmongYou(chosenCards, props.size);
     }
 
