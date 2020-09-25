@@ -154,10 +154,10 @@ function App() {
                 setStack7State(stack7.state);
             }
 
-            setCurrCard(pile[pile.indexOf(currCard) - 1]);
+            if (currCard === pile[pile.length - 1]) setCurrCard(pile[0]);
+            else setCurrCard(pile[pile.indexOf(currCard) + 1]);
 
             let copy = pile;
-            setCurrCard(pile[pile.indexOf(currCard) - 1]);
             if (pile.indexOf(card) > -1) {
                 copy.splice(pile.indexOf(card), 1);
             }
@@ -168,7 +168,7 @@ function App() {
     }
 
     const handleAddToPile = (event, card) => {
-        if (chosen_state.state.length !== 0) {
+        if (chosen_state.state.length === 1) {
             if(event.target.id === "1") {
                 pile1.addCard(card[0]);
                 setPile1State(pile1.state);
@@ -215,6 +215,8 @@ function App() {
 
             setChosen_state({state: [], fromWhichStack: undefined});
 
+        } else if (chosen_state.state.length !== 0) {
+
         } else {
             if(event.target.id === "1") {
                 pile1.addCard(card);
@@ -230,10 +232,10 @@ function App() {
                 setPile4State(pile4.state);
             }
 
-            setCurrCard(pile[pile.indexOf(currCard) - 1]);
+            if (currCard === pile[pile.length - 1]) setCurrCard(pile[0]);
+            else setCurrCard(pile[pile.indexOf(currCard) + 1]);
 
             let copy = pile;
-            setCurrCard(pile[pile.indexOf(currCard) - 1]);
             if (pile.indexOf(card) > -1) {
                 copy.splice(pile.indexOf(card), 1);
             }
