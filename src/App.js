@@ -41,7 +41,7 @@ function App() {
     const [pile4_state, setPile4State] = useState(pile4.state);
 
     const [pile, changePile] = useState(deck);
-    const [currCard, setCurrCard] = useState(pile[pile.length - 1])
+    const [currCard, setCurrCard] = useState(pile[0]);
 
     const [chosen_state, setChosen_state] = useState({state: [], fromWhichStack: undefined});
 
@@ -154,11 +154,16 @@ function App() {
                 setStack7State(stack7.state);
             }
 
+            setCurrCard(pile[pile.indexOf(currCard) - 1]);
+
             let copy = pile;
-            copy.pop();
+            setCurrCard(pile[pile.indexOf(currCard) - 1]);
+            if (pile.indexOf(card) > -1) {
+                copy.splice(pile.indexOf(card), 1);
+            }
+
             changePile(copy);
 
-            setCurrCard(pile[pile.length - 1]);
         }
     }
 
@@ -225,18 +230,31 @@ function App() {
                 setPile4State(pile4.state);
             }
 
-            let copy = pile;
-            copy.pop();
-            changePile(copy);
+            setCurrCard(pile[pile.indexOf(currCard) - 1]);
 
-            setCurrCard(pile[pile.length - 1]);
+            let copy = pile;
+            setCurrCard(pile[pile.indexOf(currCard) - 1]);
+            if (pile.indexOf(card) > -1) {
+                copy.splice(pile.indexOf(card), 1);
+            }
+
+            changePile(copy);
         }
 
     }
 
+    const handleCardChange = (event) => {
+        console.log(pile);
+        if (event.target.id === "+1") {
+            if (currCard !== pile[pile.length - 1]) setCurrCard(pile[pile.indexOf(currCard) + 1]);
+            else setCurrCard(pile[0]);
+        } else {
+            if (currCard !== pile[0]) setCurrCard(pile[pile.indexOf(currCard) - 1]);
+            else setCurrCard(pile[pile.length - 1]);
+        }
+    }
+
     const isChosenAmongYou = (cards, num) => {
-        console.log(cards);
-        console.log(num);
         if (cards === null) {
             setChosen_state({state: [], fromWhichStack: undefined});
         } else if (chosen_state.state.length !== 0) {
@@ -255,9 +273,11 @@ function App() {
     return (
         <div className="app">
             <div className="main-panel">
+                <h2>Aktualna karta:</h2>
                 <div className="display-currCard">
-                    <h2>Aktualna karta:</h2>
+                    <button id="-1" className="change-card" onClick={handleCardChange}>Prev</button>
                     <div className="curr-card"><DisplayCard id={currCard.id} color={currCard.color} figure={currCard.figure} flipped={currCard.flipped}/></div>
+                    <button id="+1" className="change-card" onClick={handleCardChange}>Next</button>
                 </div>
                 <div className="stack-buttons">
                     <button id="1" onClick={(e) => handleAddToStack(e, currCard)}>1</button>
